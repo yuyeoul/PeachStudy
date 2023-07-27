@@ -1,3 +1,5 @@
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter&count_bg=%233D86C8&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%EB%B0%A9%EB%AC%B8%EC%9E%90%EC%88%98&edge_flat=false)](https://hits.seeyoufarm.com)
+
 ![header](https://capsule-render.vercel.app/api?type=Rect&color=4682b4&height=180&section=header&text=Algorithm%20Study&fontSize=75&fontColor=f0f8ff)
 
 
@@ -12,11 +14,13 @@
     <table>
     <tbody>
         <tr>
-        <td align="center"><a href="https://github.com/eunpyeong114"><img src="https://avatars.githubusercontent.com/u/139293873?v=4" width="100px;" alt=""/><br /><sub><b>전은평<br>(eunpyeong114)</b></sub></a><br /></td>
-        <td align="center"><a href="https://github.com/joni1995"><img src="https://avatars.githubusercontent.com/u/139304892?v=4" width="100px;" alt=""/><br /><sub><b>김종인<br>(Joni1995)</b></sub></a><br /></td>
-        <td align="center"><a href="https://github.com/yuyeoul"><img src="https://avatars.githubusercontent.com/u/93958447?v=4" width="100px;" alt=""/><br /><sub><b>배유열<br>(yuyeoul)</b></sub></a><br /></td>
-        <td align="center"><a href="https://github.com/YUKYUNGkKIM"><img src="https://avatars.githubusercontent.com/u/139313708?v=4" width="100px;" alt=""/><br /><sub><b>김유경<br>(YUKYUNGkKIM) </b></sub></a><br /></td>
-        <td align="center"><a href="https://github.com/byunghyunkim0"><img src="https://avatars.githubusercontent.com/u/139294001?v=4" width="100px;" alt=""/><br /><sub><b>김병현<br>
+        <td align="center"><a href="https://github.com/eunpyeong114"><img src="https://avatars.githubusercontent.com/u/139293873?v=4" width="100px;" alt=""/><br /><sub><b>전은평<br>
+        <img src="http://mazassumnida.wtf/api/mini/generate_badge?boj=jep1995">
+        <br>(eunpyeong114)</b></sub></a><br /></td>
+        <td align="center"><a href="https://github.com/joni1995"><img src="https://avatars.githubusercontent.com/u/139304892?v=4" width="100px;" alt=""/><br /><sub><b>김종인<br><img src="http://mazassumnida.wtf/api/mini/generate_badge?boj=kirua0517"><br>(Joni1995)</b></sub></a><br /></td>
+        <td align="center"><a href="https://github.com/yuyeoul"><img src="https://avatars.githubusercontent.com/u/93958447?v=4" width="100px;" alt=""/><br /><sub><b>배유열<br><img src="http://mazassumnida.wtf/api/mini/generate_badge?boj=yyungyn"><br>(yuyeoul)</b></sub></a><br /></td>
+        <td align="center"><a href="https://github.com/YUKYUNGkKIM"><img src="https://avatars.githubusercontent.com/u/139313708?v=4" width="100px;" alt=""/><br /><sub><b>김유경<br><img src="http://mazassumnida.wtf/api/mini/generate_badge?boj=youkyung7252"><br>(YUKYUNGkKIM) </b></sub></a><br /></td>
+        <td align="center"><a href="https://github.com/byunghyunkim0"><img src="https://avatars.githubusercontent.com/u/139294001?v=4" width="100px;" alt=""/><br><sub><b>김병현<br><img src="http://mazassumnida.wtf/api/mini/generate_badge?boj=qudgus2411"><br>
 (byunghyunkim0) </b></sub></a><br /></td>
         </tr>
     </tbody>
