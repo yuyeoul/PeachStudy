@@ -1,77 +1,50 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class BOJ_2309 {
-	// Àç±ÍÇÔ¼ö »ç¿ëÇÔ
-	// Step 1. ÀÔ·Â¹ŞÀº 9°³ÀÇ ¼ıÀÚ Áß¿¡¼­ 1°³ºÎÅÍ 9°³±îÁöÀÇ ¼ıÀÚ¸¦ ¼±ÅÃÇÏ¿© ÇÕÀ» °è»êÇØº¸¸ç °¡´ÉÇÑ ¸ğµç Á¶ÇÕÀ» Ã£À½
-	// Step 2. Àç±Í ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© ¸ğµç Á¶ÇÕÀ» Å½»öÇÏ°í °¹¼ö°¡ 7, ÇÕÀÌ 100ÀÌ µÇ´Â °æ¿ì¸¸ °á°ú¿¡ Æ÷ÇÔ½ÃÅ´
-	
-	public static void main(String[] args) {
-		
-		// ³­ÀïÀÌµé Å° ÀÔ·Â¹ŞÀ½
-		// System.out.println("³­ÀïÀÌµéÀÇ Å°´Â?");
-		Scanner sc = new Scanner(System.in);
-		
-		// 9¸íÀÌ´Ï±î 1Â÷¿ø ¹è¿­¿¡ ÀúÀå
-		int[] nan = new int[9];
-		
-		// ¸ñÇ¥ sumÀÌ µÇ´Â targetSum À» 100À¸·Î ÀúÀå
-		int targetSum = 100;
-		
-		// ÀÔ·Â¹ŞÀº Å°µé ¹è¿­¿¡ ÀúÀå
-		for (int i = 0; i < nan.length; i++) {
-			nan[i] = sc.nextInt();
-		}
-		
-		// 7¸íÀÇ ÇÕÀÌ 100ÀÌ µÇ´Â Á¶ÇÕÀ» Ã£±â À§ÇØ findCombinations ¸Ş¼­µå È£Ãâ
-		// 1) nan ¹è¿­¿¡ ÀúÀåµÈ Å°µé·Î ÇÕÀÌ targetSum ÀÎ ¸ğµç Á¶ÇÕÀ» Ã£À½
-		// 2-1) 'ArrayList<Integer>': 1Â÷¿ø ArrayList·Î, Á¤¼ö ÀúÀåÇÔ
-		//   2-2) 'ArrayList<ArrayList<Integer>>': 2Â÷¿ø ArrayList·Î, 1Â÷¿ø ArrayListµéÀ» ÀúÀå
-		ArrayList<ArrayList<Integer>> combinations = findCombinations(nan, 100, 7);
-		
-		// °á°ú Ãâ·Â
-		for (ArrayList<Integer> combination : combinations) {
-			// ¿À¸§Â÷¼øÀ¸·Î Á¤·Ä(ÀÌ°É ¸øÇÏ°í ÀÖ¾úÀ½)
-			Collections.sort(combination);
-			for (int num:combination) {
-				System.out.println(num); // ÇÑÁÙ¿¡ ÇÏ³ª¾¿
-			}
-		}
-		
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int[] nan = new int[9]; // ë‚œìŸì´ë“¤ í‚¤ë¥¼ ì €ì¥í•  ë°°ì—´
+
+        // ì…ë ¥ë°›ì€ í‚¤ë“¤ ë°°ì—´ì— ì €ì¥
+        for (int i = 0; i < nan.length; i++) {
+            nan[i] = sc.nextInt();
+        }
+
+        // ë‚œìŸì´ë“¤ í‚¤ë¥¼ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
+        Arrays.sort(nan);
+
+        // ë‚œìŸì´ 7ëª…ì˜ í‚¤ í•©ì´ 100ì´ ë˜ëŠ”ì§€ ì°¾ëŠ” ë©”ì„œë“œ
+        findSeven(nan, 0, 0, new int[7]);
     }
-	
-	// ÇÕÀÌ targetSumÀÌ µÇ´Â ¸ğµç Á¶ÇÕÀ» Ã£´Â ¸Ş¼­µå »ı¼º
-    public static ArrayList<ArrayList<Integer>> findCombinations(int[] numbers, int targetSum, int count) {
-        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-        ArrayList<Integer> currentCombination = new ArrayList<>();
-        
-        // Àç±ÍÇÔ¼ö¸¦ È£ÃâÇÏ¿© Á¶ÇÕÀ» Ã£À½
-        findCombinationsHelper(numbers, targetSum, count, 0, currentCombination, result);
-        return result;
-    }
-    
-    // Àç±ÍÀûÀ¸·Î Á¶ÇÕÀ» Ã£´Â ¸Ş¼­µå
-    private static void findCombinationsHelper(int[] numbers, int targetSum, int count, int currentIndex, ArrayList<Integer> currentCombination, ArrayList<ArrayList<Integer>> result) {
-   
-    	// Base case: count¸íÀÇ ³­ÀïÀÌµéÀ» ¼±ÅÃÇÏ¿© ÇÕÀÌ 100ÀÌ µÇ¸é °á°ú¿¡ Ãß°¡ÇÏ°í ÇÔ¼ö Á¾·á
-        if (count == 0 && targetSum == 0) {
-            result.add(new ArrayList<>(currentCombination));
+
+    // ë‚œìŸì´ 7ëª…ì˜ í‚¤ í•©ì´ 100ì´ ë˜ëŠ” ì¡°í•©ì„ ì°¾ëŠ” ë©”ì„œë“œ
+    public static void findSeven(int[] nan, int start, int count, int[] selected) {
+    	
+    	
+        // 7ëª…ì˜ ë‚œìŸì´ë¥¼ ì„ íƒí–ˆì„ ë•Œ
+        if (count == 7) {
+            int sum = 0;
+            for (int height : selected) {
+                sum += height;
+            }
+
+            // í•©ì´ 100ì´ë©´ ê²°ê³¼ ì¶œë ¥í•˜ê³  í”„ë¡œê·¸ë¨ ì¢…ë£Œ
+            if (sum == 100) {
+                for (int height : selected) {
+                    System.out.println(height);
+                }
+                // ê°•ì œ ì¢…ë£Œ ë©”ì„œë“œ
+                System.exit(0);
+            }
             return;
         }
 
-        // Recursive case: ÇöÀç ÀÎµ¦½ººÎÅÍ ³¡±îÁöÀÇ ¼ıÀÚµé·Î °¡´ÉÇÑ Á¶ÇÕÀ» Ã£À½
-        for (int i = currentIndex; i < numbers.length; i++) {
-            int currentNumber = numbers[i];
-
-            // ÇöÀç ¼ıÀÚ°¡ ³²Àº ÇÕº¸´Ù Å©¸é ´õ ÀÌ»ó Á¶ÇÕÀÌ ºÒ°¡´ÉÇÏ¹Ç·Î ½ºÅµ
-            if (currentNumber <= targetSum) {
-                currentCombination.add(currentNumber);
-                // ´ÙÀ½ ¼ıÀÚµé·Î °¡´ÉÇÑ Á¶ÇÕÀ» Ã£±â À§ÇØ Àç±Í È£Ãâ
-                findCombinationsHelper(numbers, targetSum - currentNumber, count - 1, i + 1, currentCombination, result);
-                currentCombination.remove(currentCombination.size() - 1); // Backtracking
-            }
+        // 7ëª…ì˜ ë‚œìŸì´ë¥¼ ì„ íƒí•˜ëŠ” ê²½ìš°
+        for (int i = start; i < nan.length; i++) {
+            selected[count] = nan[i];
+            findSeven(nan, i + 1, count + 1, selected);
         }
     }
 }
