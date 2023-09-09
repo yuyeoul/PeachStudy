@@ -12,26 +12,26 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		while (true) { // 입력받는 숫자의 개수가 0이 아니라면 계속 반복하기
-			
-		n = sc.nextInt(); // 조합에 포함되는 갯수
-		
-		if (n == 0) { // 입력받는 숫자 n이 0이라면 종료
-			break;
-		}
-		
-		k = new int[n]; // 갯수만큼 숫자를 담을 배열
 
-		// n개의 숫자 입력 받기
-		for (int i = 0; i < n; i++) {
-			k[i] = sc.nextInt();
-		} // 입력 끝
+			n = sc.nextInt(); // 조합에 포함되는 갯수
 
-		// 입력 확인
+			if (n == 0) { // 입력받는 숫자 n이 0이라면 종료
+				break;
+			}
+
+			k = new int[n]; // 갯수만큼 숫자를 담을 배열
+
+			// n개의 숫자 입력 받기
+			for (int i = 0; i < n; i++) {
+				k[i] = sc.nextInt();
+			} // 입력 끝
+
+			// 입력 확인
 //			System.out.println(Arrays.toString(k));
 
-		combination(0, 0);
-		System.out.println();
-		
+			combination(0, 0);
+			System.out.println();
+
 		} // while문 끝
 
 	} // main
@@ -42,14 +42,14 @@ public class Main {
 		if (sidx == 6) {
 			for (int i = 0; i < rotto.length; i++) {
 				System.out.print(rotto[i]);
-				if (i < rotto.length-1) {
+				if (i < rotto.length - 1) {
 					System.out.print(" "); // 마지막 숫자 뒤에 공백 출력 안하게!!
 				}
 			}
 			System.out.println(); // 끝나면 다음 줄
 			return;
 		}
-		
+
 		// 재귀파트
 		for (int i = idx; i <= n - 6 + sidx; i++) {
 			rotto[sidx] = k[i];
