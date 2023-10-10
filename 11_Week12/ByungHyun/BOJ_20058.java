@@ -1,7 +1,9 @@
 package BOJ_20058_마법사상어와파이어스톰;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
@@ -38,7 +40,6 @@ public class Main {
 			rotate(l);
 			melt();
 		}
-		
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				sum+= board[i][j];
@@ -50,11 +51,11 @@ public class Main {
 		
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (visited[i][j]) {
+				if (visited[i][j] || board[i][j] == 0) {
 					continue;
 				}
 				c = 0;
-				dfs(i, j);
+				bfs(i, j);
 				count = Math.max(c, count);
 			}
 		}
@@ -90,6 +91,9 @@ public class Main {
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				int count = 0;
+				if (board[i][j] == 0) {
+					continue;
+				}
 				for (int d = 0; d < 4; d++) {
 					int nx = i + dx[d];
 					int ny = j + dy[d];
@@ -110,15 +114,23 @@ public class Main {
 		}
 	}
 	
-	public static void dfs(int x, int y) {
-		for (int d = 0; d < 4; d++) {
-			int nx = x + dx[d];
-			int ny = y + dy[d];
+	public static void bfs(int x, int y) {
+		Queue<int[]> queue = new LinkedList<>();
+		queue.add(new int[] {x, y});
+		visited[x][y] = true;
+		c++;
+		while (!queue.isEmpty()) {
+			int[] curr = queue.remove();
 			
-			if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
-				visited[nx][ny] = true;
-				c++;
-				dfs(nx, ny);
+			for (int i = 0; i < 4; i++) {
+				int nx = curr[0] + dx[i];
+				int ny = curr[1] + dy[i];
+				
+				if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny] && board[nx][ny] != 0) {
+					visited[nx][ny] = true;
+					c++;
+					queue.add(new int[] {nx, ny});
+				}
 			}
 		}
 	}
