@@ -43,7 +43,6 @@ public class BOJ_3079 {
     public static boolean check(long M, long mid, long times[]) {
         for (int i = 0; i < times.length; i++) {
             M -= mid / times[i];
-            // 이거 안해주면 언더플로우 가능
             if (M <= 0) {
                 return true;
             }
